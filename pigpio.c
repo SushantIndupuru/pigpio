@@ -13821,6 +13821,21 @@ unsigned gpioHardwareRevision(void)
             hw_clk_min_freq = PI_HW_CLK_MIN_FREQ_2711;
             hw_clk_max_freq = PI_HW_CLK_MAX_FREQ_2711;
             break;
+              
+         case 0x4:   /* BCM2712 (Raspberry Pi 5) */
+            pi_ispi = 1;
+            piCores = 4;
+            pi_peri_phys = 0xFE000000;
+            pi_dram_bus  = 0xC0000000;
+            pi_mem_flag  = 0x04;
+            pi_is_2711   = 1;  // treat like 2711 for now
+            clk_osc_freq = CLK_OSC_FREQ_2711;
+            clk_plld_freq = CLK_PLLD_FREQ_2711;
+            hw_pwm_max_freq = PI_HW_PWM_MAX_FREQ_2711;
+            hw_clk_min_freq = PI_HW_CLK_MIN_FREQ_2711;
+            hw_clk_max_freq = PI_HW_CLK_MAX_FREQ_2711;
+            break;
+
 
          default:
             DBG(DBG_ALWAYS, "unknown rev code (%x)", rev);
